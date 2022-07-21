@@ -15,6 +15,12 @@ class CategoryController extends Controller
         return view("category.create");
     }
 
+    public function index()
+    {
+        $categorys = Category::all();
+        return view('category.read', compact('categorys'));
+    }
+
     public function store(createcategoryrequest $request)
     {
         $data = $request->all();
@@ -29,4 +35,5 @@ class CategoryController extends Controller
         Session::flash('save','Se ha registrado correctamente');
         return redirect()->route('category-add');
     }
+
     }
