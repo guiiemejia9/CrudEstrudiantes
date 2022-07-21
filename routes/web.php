@@ -1,17 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::prefix('category')->group(function () {
+    Route::get('/agregar', [CategoryController::class, 'create'])->name('category-add');
+    //Route::get('/visualizar', [CuentaController::class, 'index'])->name('cuenta-visualizar');
+    Route::post('/crear', [CategoryController::class, 'store'])->name('category-create');
+    //Route::delete('/eliminar/{id}', [CuentaController::class, 'delete'])->name('cuenta-eliminar');
+   // Route::get('/editar/{id}', [CuentaController::class, 'edit'])->name('cuenta-editar');
+   // Route::PUT('/actualizar/{id}', [CuentaController::class, 'update'])->name('cuenta-actualizar');
+});
 
 Route::get('/', function () {
     return view('welcome');
