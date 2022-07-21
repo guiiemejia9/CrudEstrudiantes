@@ -2,7 +2,7 @@
 
 @section('content')
     @include('messeges.messages')
-    <h3 class="my-1 text-center">Tabla de Cuentas</h3>
+    <h3 class="my-1 text-center">Tabla de Categorias</h3>
     <div class="row col-12 justify-content-end mb-2 pr-0">
 
         <table class="table">
@@ -21,13 +21,13 @@
                     <td>{{ $category->description }}</td>
 
                     <td>
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{ route('category-delete', $category->id_category) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" onclick="return confirm('Estas Seguro?')"
                                     class="btn btn-danger">Eliminar</button>
                         </form>
-                        <form method="GET" action="#">
+                        <form method="GET" action="{{ route('category-edit', $category->id_category) }}">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-warning">Editar</button>

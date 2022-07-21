@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 ;
+
+use App\Http\Requests\updatecategoryrequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\createcategoryrequest;
@@ -33,7 +35,35 @@ class CategoryController extends Controller
 
         ]);
         Session::flash('save','Se ha registrado correctamente');
-        return redirect()->route('category-add');
+        return redirect()->route('category-visualize');
     }
+    public function delete($id)
+    {
+        Category::find($id)->delete();
+        Session::flash('delete','Se ha eliminado correctamente');
+        return redirect()->route('category-visualize');
 
     }
+
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+
+        return view('category.edit', [
+
+            'category' => $category,
+        ]);
+
+    }
+
+    public function update(updatecategoryrequest  $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category->description = $request->description;
+
+        $category->save();
+        Session::flash('update','Se ha actualizado correctamente');
+        return redirect()->route('category-visualize');
+    }
+
+}
