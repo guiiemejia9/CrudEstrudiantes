@@ -26,11 +26,23 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                Clientes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{route('customer-add')}}">Agregar</a>
+                <a class="dropdown-item" href="{{route('customer-visualize')}}">Visualizar</a>
+
+            </div>
+        </li>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                       aria-haspopup="true" aria-expanded="false">
                         Categoria
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -39,20 +51,12 @@
 
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Duedas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Agregar</a>
-                        <a class="dropdown-item" href="#">Visualizar</a>
 
-                    </div>
-                </li>
 
 
         </div>
+
+
     </nav>
 
 
